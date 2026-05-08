@@ -893,3 +893,15 @@ function throttle(func, limit) {
         }
     };
 }
+
+// Product gallery thumbnail click to swap main image
+document.querySelectorAll('.product-gallery-thumbs img').forEach(thumb => {
+    thumb.style.cursor = 'pointer';
+    thumb.addEventListener('click', () => {
+        const mainImg = thumb.closest('.product-detail-gallery').querySelector('.product-img-main');
+        if (mainImg) {
+            mainImg.src = thumb.src;
+            mainImg.alt = thumb.alt;
+        }
+    });
+});
