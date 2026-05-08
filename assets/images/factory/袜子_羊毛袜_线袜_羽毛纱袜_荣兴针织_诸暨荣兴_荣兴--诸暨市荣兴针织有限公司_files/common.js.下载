@@ -1,0 +1,38 @@
+/*
+ * 公共js
+ */
+appearShow();
+// 当前页面头部导航高亮
+
+function appearShow() {
+    $(".wgt-fade-animate").each(function () {
+        var fold = $(window).height() + $(window).scrollTop();
+        if (fold > $(this).offset().top) {
+            $(this).trigger("appear");
+        }
+    });
+}
+
+$(function () {
+
+    // 滚至可见区域渐现
+    $(window).bind("scroll", function (event) {
+        appearShow();
+    });
+
+    $(".wgt-fade-animate").on("appear", function () {
+        $(this).addClass('appear');
+    });
+
+
+});
+
+//header
+$(window).scroll(function () {
+    var win_scroll = $(window).scrollTop();
+    if (win_scroll > 5) {
+        $('.header-box').addClass('on');
+    } else {
+        $('.header-box').removeClass('on');
+    }
+})

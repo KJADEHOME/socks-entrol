@@ -1,0 +1,16 @@
+$(window).ready(function () {
+    $(window).scroll(function () {
+        var top = $(window).scrollTop();
+        if (top > 10) {
+            $("header").addClass("bg")
+        } else {
+            $("header").removeClass("bg")
+        }
+    })
+    //header
+
+    $(".headMenu").on('click', function () {
+        $(this).toggleClass("click");
+        $(".headMlb").toggleClass("open")
+    })
+})

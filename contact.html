@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-title="meta.contactTitle">Contact Us - Entrol Rongxing | Professional Socks Manufacturer</title>
+    <meta name="description" content="Contact Entrol Rongxing - Get product catalogs, quotations, or inquire about OEM/ODM customization services. We look forward to working with you.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <span class="logo-main">Entrol Rongxing</span>
+                    <span class="logo-sub">Professional Socks Manufacturer</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+                    <li><a href="about.html" data-i18n="nav.about">About</a></li>
+                    <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                    <li><a href="contact.html" class="active" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                </div>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-i18n="contactPage.title">Contact Us</h1>
+            <p data-i18n="contactPage.subtitle">Looking Forward to Building a Partnership</p>
+        </div>
+    </section>
+
+    <!-- Contact Info Cards -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3 data-i18n="contactPage.emailTitle">Email</h3>
+                    <p data-i18n="contactPage.emailDesc">Send inquiries or product requests</p>
+                    <a href="mailto:wangyen@ec.com.cn" class="contact-link">wangyen@ec.com.cn</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3 data-i18n="contactPage.phoneTitle">Phone</h3>
+                    <p data-i18n="contactPage.phoneDesc">Mon-Fri 9:00-18:00 (CST)</p>
+                    <a href="tel:+8615263130999" class="contact-link">+86 152 6313 0999</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🏭</div>
+                    <h3 data-i18n="contactPage.addrTitle">Factory Address</h3>
+                    <p data-i18n="contactPage.addrDesc">Datang Town, Zhuji, Zhejiang, China</p>
+                    <span class="contact-text" data-i18n="contactPage.welcome">Welcome to visit by appointment</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <h2 data-i18n="contactPage.formTitle">Send Inquiry</h2>
+                    <p data-i18n="contactPage.formDesc">Fill out the form below and we will contact you soon</p>
+                </div>
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/b.wu@entrol.com" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" data-i18n="contactPage.labelName">Your Name *</label>
+                            <input type="text" id="name" name="name" required data-i18n-placeholder="contactPage.phName" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="company" data-i18n="contactPage.labelCompany">Company Name *</label>
+                            <input type="text" id="company" name="company" required data-i18n-placeholder="contactPage.phCompany" placeholder="Enter company name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" data-i18n="contactPage.labelEmail">Email *</label>
+                            <input type="email" id="email" name="email" required data-i18n-placeholder="contactPage.phEmail" placeholder="Enter email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-i18n="contactPage.labelPhone">Phone</label>
+                            <input type="tel" id="phone" name="phone" data-i18n-placeholder="contactPage.phPhone" placeholder="Enter phone number">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="country" data-i18n="contactPage.labelCountry">Country/Region *</label>
+                            <select id="country" name="country" required>
+                                <option value="" data-i18n="contactPage.optCountry">Select country/region</option>
+                                <option value="US">United States</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="DE">Germany</option>
+                                <option value="FR">France</option>
+                                <option value="IT">Italy</option>
+                                <option value="ES">Spain</option>
+                                <option value="CA">Canada</option>
+                                <option value="AU">Australia</option>
+                                <option value="JP">Japan</option>
+                                <option value="KR">South Korea</option>
+                                <option value="other" data-i18n="contactPage.optOther">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest" data-i18n="contactPage.labelInterest">Product Interest *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="" data-i18n="contactPage.optProduct">Select product type</option>
+                                <option value="floor-socks" data-i18n="contactPage.optFloor">Floor Socks</option>
+                                <option value="cotton-socks" data-i18n="contactPage.optCotton">Premium Cotton Socks</option>
+                                <option value="feather-socks" data-i18n="contactPage.optFeather">Feather Yarn Shea Butter Socks</option>
+                                <option value="terry-socks" data-i18n="contactPage.optTerry">Terry Socks</option>
+                                <option value="multiple" data-i18n="contactPage.optMultiple">Multiple Products</option>
+                                <option value="custom" data-i18n="contactPage.optCustom">Custom Development</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity" data-i18n="contactPage.labelQty">Estimated Quantity</label>
+                        <select id="quantity" name="quantity">
+                            <option value="" data-i18n="contactPage.optQty">Select quantity range</option>
+                            <option value="3000-10000">3,000 - 10,000 pairs</option>
+                            <option value="10000-50000">10,000 - 50,000 pairs</option>
+                            <option value="50000-100000">50,000 - 100,000 pairs</option>
+                            <option value="100000+">100,000+ pairs</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="contactPage.labelMsg">Detailed Requirements *</label>
+                        <textarea id="message" name="message" rows="5" required data-i18n-placeholder="contactPage.phMsg" placeholder="Please describe your specific requirements, including product specifications, customization needs, target market, etc."></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-large" data-i18n="contactPage.submitBtn">Submit Inquiry</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="contactPage.faqTitle">FAQ</h2>
+                <p data-i18n="contactPage.faqDesc">Answers to common questions about cooperation</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 data-i18n="contactPage.q1">Q: What is the Minimum Order Quantity (MOQ)?</h3>
+                    <p data-i18n="contactPage.a1">A: Our standard MOQ is 3,000 pairs/color/style. For long-term partners or large volume orders, we can negotiate more flexible MOQs.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 data-i18n="contactPage.q2">Q: How long does sampling take?</h3>
+                    <p data-i18n="contactPage.a2">A: Regular sampling takes 7-10 working days. Complex processes or special materials may require 10-15 working days. Sampling fees can be deducted upon bulk order placement.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 data-i18n="contactPage.q3">Q: What is the lead time for bulk orders?</h3>
+                    <p data-i18n="contactPage.a3">A: Depending on order quantity and process complexity, bulk order lead time is typically 30-45 days. We will provide an accurate delivery schedule upon order confirmation.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 data-i18n="contactPage.q4">Q: What payment methods do you accept?</h3>
+                    <p data-i18n="contactPage.a4">A: We accept T/T wire transfer, L/C letter of credit, and other payment methods. Specific payment terms are negotiated based on order amount and cooperation history.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 data-i18n="contactPage.q5">Q: Do you provide packaging design services?</h3>
+                    <p data-i18n="contactPage.a5">A: Yes, we can provide packaging design services including hangtags, labels, and packaging boxes. You may also provide your own design files.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 data-i18n="contactPage.q6">Q: How do you ensure product quality?</h3>
+                    <p data-i18n="contactPage.a6">A: We have a strict quality control process with 6 inspection stages from raw materials to finished products. All products meet international quality standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="contactPage.mapTitle">Factory Location</h2>
+                <p data-i18n="contactPage.mapDesc">Zhuji, Zhejiang - China's Sock Capital</p>
+            </div>
+            <div class="map-placeholder">
+                <div class="map-content">
+                    <span class="map-icon">📍</span>
+                    <p data-i18n="footer.company">Zhuji Rongxing Knitting Co., Ltd.</p>
+                    <p data-i18n="footer.address">Address: Datang Town, Zhuji, Zhejiang, China</p>
+                    <p data-i18n="footer.tel">Tel: +86 152 6313 0999</p>
+                    <p class="map-note" data-i18n="contactPage.welcome">Welcome to visit by appointment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Entrol Rongxing</h3>
+                    <p data-i18n="footer.brand">Professional Socks Manufacturer<br>20 Years Experience</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.links">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                        <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+                        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+                        <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-i18n="footer.contact">Contact</h4>
+                    <p data-i18n="footer.company">Zhuji Rongxing Knitting Co., Ltd.</p>
+                    <p data-i18n="footer.address">Address: Datang Town, Zhuji, Zhejiang, China</p>
+                    <p data-i18n="footer.tel">Tel: +86 152 6313 0999</p>
+                    <p data-i18n="footer.capacity">Capacity: 3M pairs/month</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Entrol Rongxing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
