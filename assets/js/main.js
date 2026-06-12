@@ -905,3 +905,42 @@ document.querySelectorAll('.product-gallery-thumbs img').forEach(thumb => {
         }
     });
 });
+
+// Floating WhatsApp & WeChat Contact Buttons - Injected into all pages
+(function() {
+    const floatDiv = document.createElement('div');
+    floatDiv.className = 'float-contact';
+    floatDiv.innerHTML = `
+        <a href="https://wa.me/8615263130999?text=Hi%2C%20I%27m%20interested%20in%20your%20socks%20OEM%2FODM%20services.%20Could%20you%20send%20me%20your%20product%20catalog%3F"
+           class="float-contact-btn float-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+            <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16.004 0C7.165 0 .002 7.163.002 16c0 2.825.737 5.584 2.137 8.006L.063 32l8.178-2.143A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.841 0 16.004 0zm0 29.18c-2.63 0-5.198-.686-7.456-1.986l-.535-.318-5.543 1.452 1.478-5.406-.35-.558A13.16 13.16 0 012.82 16c0-7.275 5.912-13.186 13.184-13.186 7.275 0 13.187 5.912 13.187 13.186 0 7.275-5.912 13.18-13.187 13.18zm7.23-9.878c-.396-.198-2.344-1.156-2.706-1.288-.363-.132-.627-.198-.891.198-.264.396-1.023 1.288-1.254 1.553-.231.264-.462.297-.858.099-.396-.198-1.672-.616-3.186-1.966-1.177-1.05-1.972-2.346-2.203-2.742-.231-.396-.025-.61.174-.808.178-.178.396-.462.594-.693.198-.231.264-.396.396-.66.132-.264.066-.495-.033-.693-.099-.198-.891-2.148-1.221-2.94-.322-.772-.649-.668-.891-.68l-.759-.013c-.264 0-.693.099-1.056.495-.363.396-1.386 1.354-1.386 3.303 0 1.949 1.419 3.831 1.617 4.095.198.264 2.794 4.266 6.77 5.982.946.408 1.684.652 2.26.834.95.302 1.814.259 2.497.157.762-.114 2.344-.958 2.674-1.883.33-.925.33-1.716.231-1.883-.099-.165-.363-.264-.759-.462z"/></svg>
+            <span class="float-tooltip">Chat on WhatsApp</span>
+        </a>
+        <div style="position:relative;">
+            <button class="float-contact-btn float-wechat" id="wechatFloatBtn" aria-label="WeChat">
+                <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M21.7 8.5c-3.1 0-5.7 2.1-5.7 4.8 0 1.5.8 2.8 2 3.7l-.5 1.5 1.7-1c.8.2 1.6.4 2.5.4.3 0 .5 0 .8-.1-.2-.5-.3-1-.3-1.5 0-2.9 2.7-5.3 6-5.3.3 0 .5 0 .8.1C28.4 8.6 25.3 8.5 21.7 8.5zM18 6.1c-.7 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.2.5 1.2 1.2-.5 1.2-1.2 1.2zm7.4 0c-.7 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.2.5 1.2 1.2-.5 1.2-1.2 1.2zM28.2 16.3c0-2.3-2.2-4.1-4.9-4.1s-4.9 1.8-4.9 4.1 2.2 4.1 4.9 4.1c.6 0 1.2-.1 1.7-.3l1.4.6-.4-1.2c1.3-.8 2.2-2 2.2-3.2zm-6.6-.8c-.5 0-.9-.4-.9-.9s.4-.9.9-.9.9.4.9.9-.4.9-.9.9zm3.5 0c-.5 0-.9-.4-.9-.9s.4-.9.9-.9.9.4.9.9-.5.9-.9.9zM12.2 13.3c-4.1 0-7.4 2.8-7.4 6.2 0 1.9 1 3.6 2.6 4.7l-.7 2 2.3-1.1c1 .3 2.1.5 3.2.5 4.1 0 7.4-2.8 7.4-6.2S16.3 13.3 12.2 13.3zm-3 4.7c-.6 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.2.5 1.2 1.2-.6 1.2-1.2 1.2zm6 0c-.6 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.2.5 1.2 1.2-.6 1.2-1.2 1.2z"/></svg>
+                <span class="float-tooltip">WeChat: 15263130999</span>
+            </button>
+            <div class="float-wechat-popup" id="wechatPopup">
+                <p>WeChat ID: 15263130999</p>
+                <small>Scan or add WeChat ID to chat</small>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(floatDiv);
+
+    // WeChat popup toggle
+    const wechatBtn = document.getElementById('wechatFloatBtn');
+    const wechatPopup = document.getElementById('wechatPopup');
+    if (wechatBtn && wechatPopup) {
+        wechatBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            wechatPopup.classList.toggle('active');
+        });
+        document.addEventListener('click', function(e) {
+            if (!wechatPopup.contains(e.target) && e.target !== wechatBtn) {
+                wechatPopup.classList.remove('active');
+            }
+        });
+    }
+})();

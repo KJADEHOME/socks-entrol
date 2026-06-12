@@ -1680,3 +1680,172 @@ ul {
         grid-template-columns: 1fr;
     }
 }
+
+/* Lead Magnet Section */
+.lead-magnet {
+    padding: 50px 0;
+    background: var(--bg-light);
+}
+.lead-magnet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.lead-magnet-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-dark);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+.lead-magnet-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--secondary-color);
+    box-shadow: var(--shadow-lg);
+}
+.lead-magnet-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+.lead-magnet-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+.lead-magnet-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+.lead-magnet-btn {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+.lead-magnet-card:hover .lead-magnet-btn {
+    background: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .lead-magnet-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Floating WhatsApp / WeChat Button */
+.float-contact {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+.float-contact-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: var(--transition);
+    position: relative;
+}
+.float-contact-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.float-contact-btn img {
+    width: 28px;
+    height: 28px;
+}
+.float-whatsapp {
+    background: #25D366;
+}
+.float-wechat {
+    background: #07C160;
+}
+.float-contact-btn .float-tooltip {
+    position: absolute;
+    right: 66px;
+    background: #fff;
+    color: var(--text-dark);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+.float-contact-btn:hover .float-tooltip {
+    opacity: 1;
+}
+.float-contact-btn .float-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: #fff;
+}
+/* WeChat QR Popup */
+.float-wechat-popup {
+    display: none;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    text-align: center;
+    min-width: 200px;
+}
+.float-wechat-popup.active {
+    display: block;
+}
+.float-wechat-popup p {
+    font-size: 13px;
+    color: var(--text-dark);
+    margin-top: 8px;
+    font-weight: 600;
+}
+.float-wechat-popup small {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .float-contact {
+        bottom: 20px;
+        right: 16px;
+    }
+    .float-contact-btn {
+        width: 48px;
+        height: 48px;
+    }
+    .float-contact-btn img {
+        width: 24px;
+        height: 24px;
+    }
+    .float-contact-btn .float-tooltip {
+        display: none;
+    }
+}
