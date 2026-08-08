@@ -725,6 +725,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact Form Handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
+        const params = new URLSearchParams(window.location.search);
+        const prefill = (id, key) => {
+            const field = document.getElementById(id);
+            const value = params.get(key);
+            if (field && value) field.value = value;
+        };
+        prefill('interest', 'interest');
+        prefill('message', 'message');
+        prefill('utmSource', 'utm_source');
+        prefill('utmMedium', 'utm_medium');
+        prefill('utmCampaign', 'utm_campaign');
+        const sourcePage = document.getElementById('sourcePage');
+        if (sourcePage) sourcePage.value = document.referrer || 'direct';
+
+        let formStarted = false;
+        contactForm.addEventListener('input', function() {
+            if (!formStarted && typeof gtag === 'function') {
+                gtag('event', 'generate_lead_start', { form_name: 'b2b_inquiry' });
+                formStarted = true;
+            }
+        });
+
         contactForm.addEventListener('submit', function(e) {
             // FormSubmit will handle the actual submission
             // This is just for validation feedback
@@ -753,6 +775,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const submitBtn = this.querySelector('button[type="submit"]');
             submitBtn.textContent = lang === 'zh' ? '提交中...' : 'Submitting...';
             submitBtn.disabled = true;
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'lead_submit_attempt', {
+                    form_name: 'b2b_inquiry',
+                    product_interest: data.interest,
+                    quantity_range: data.quantity || 'not_specified'
+                });
+            }
             
             // Form will submit to FormSubmit
         });
@@ -944,3 +974,15 @@ document.querySelectorAll('.product-gallery-thumbs img').forEach(thumb => {
         });
     }
 })();
+
+// Measure commercial-intent clicks in GA4 without blocking navigation.
+document.addEventListener('click', function(event) {
+    const link = event.target.closest('a');
+    if (!link || typeof gtag !== 'function') return;
+    const href = link.getAttribute('href') || '';
+    const label = link.dataset.track;
+    if (label) gtag('event', 'select_content', { content_type: 'cta', item_id: label });
+    if (href.includes('wa.me')) gtag('event', 'contact', { method: 'whatsapp' });
+    if (href.startsWith('mailto:')) gtag('event', 'contact', { method: 'email' });
+    if (href.startsWith('tel:')) gtag('event', 'contact', { method: 'phone' });
+});

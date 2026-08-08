@@ -1334,6 +1334,77 @@ ul {
     }
 }
 
+/* B2B acquisition sections */
+.hero-eyebrow, .section-kicker {
+    color: var(--secondary-color);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+}
+.hero-reassurance {
+    margin-top: 16px;
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+.buyer-solutions, .oem-process { padding: 80px 0; }
+.buyer-solutions { background: var(--bg-white); }
+.oem-process { background: var(--bg-light); }
+.buyer-grid, .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.buyer-card {
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+}
+.buyer-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--secondary-color); }
+.buyer-label { display: inline-block; color: var(--secondary-color); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; }
+.buyer-card h3, .process-grid h3 { color: var(--primary-color); margin-bottom: 10px; }
+.buyer-card p, .process-grid p { color: var(--text-light); margin-bottom: 16px; }
+.buyer-card strong { color: var(--primary-color); }
+.process-grid { grid-template-columns: repeat(4, 1fr); list-style: none; counter-reset: none; }
+.process-grid li { background: var(--bg-white); padding: 26px; border-radius: var(--radius-lg); border-top: 4px solid var(--secondary-color); }
+.process-grid li > span { display: block; color: var(--secondary-color); font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+.form-honey { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; opacity: 0 !important; }
+.service-landing { padding: 80px 0; }
+.service-layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(300px, .8fr); gap: 56px; align-items: start; }
+.service-layout h2 { color: var(--primary-color); margin-bottom: 18px; }
+.service-layout > div > p { color: var(--text-light); margin-bottom: 24px; }
+.check-list { display: grid; gap: 12px; }
+.check-list li { position: relative; padding-left: 28px; }
+.check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-color); font-weight: 700; }
+.quote-panel { background: var(--primary-color); color: #fff; padding: 32px; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+.quote-panel h2 { color: #fff; }
+.quote-panel p { color: rgba(255,255,255,.82); margin-bottom: 22px; }
+.quote-panel .btn { width: 100%; text-align: center; background: var(--secondary-color); }
+.quote-panel .text-link { display: block; margin-top: 18px; color: #fff; text-align: center; font-weight: 600; }
+.quality-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.quality-grid article { background: #fff; padding: 25px; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+.quality-grid span { color: var(--secondary-color); font-weight: 700; }
+.quality-grid h3 { color: var(--primary-color); margin: 8px 0; }
+.quality-grid p { color: var(--text-light); }
+.intent-strip { background: #fff7ed; border-bottom: 1px solid #fed7aa; }
+.intent-strip-inner { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.intent-strip-inner a, .article-service-link a { color: var(--primary-color); font-weight: 700; }
+.article-service-link { padding: 14px 18px; margin: 20px 0; background: #fff7ed; border-left: 4px solid var(--secondary-color); }
+@media (max-width: 900px) {
+    .buyer-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-layout { grid-template-columns: 1fr; }
+    .quality-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+    .buyer-solutions, .oem-process { padding: 56px 0; }
+    .process-grid { grid-template-columns: 1fr; }
+    .quality-grid { grid-template-columns: 1fr; }
+    .intent-strip-inner { align-items: flex-start; flex-direction: column; padding-top: 14px; padding-bottom: 14px; }
+}
+
 @media (max-width: 480px) {
     .product-grid,
     .advantage-grid,
