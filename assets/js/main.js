@@ -736,8 +736,22 @@ document.addEventListener('DOMContentLoaded', function() {
         prefill('utmSource', 'utm_source');
         prefill('utmMedium', 'utm_medium');
         prefill('utmCampaign', 'utm_campaign');
+        prefill('utmContent', 'utm_content');
+        prefill('utmTerm', 'utm_term');
+        prefill('gclid', 'gclid');
+        prefill('msclkid', 'msclkid');
         const sourcePage = document.getElementById('sourcePage');
         if (sourcePage) sourcePage.value = document.referrer || 'direct';
+        const landingPage = document.getElementById('landingPage');
+        if (landingPage) landingPage.value = window.location.href;
+        const referrer = document.getElementById('referrer');
+        if (referrer) referrer.value = document.referrer || 'direct';
+        const leadId = document.getElementById('leadId');
+        if (leadId) {
+            const stamp = new Date().toISOString().slice(0, 10).replaceAll('-', '');
+            const randomPart = Math.random().toString(36).slice(2, 8).toUpperCase();
+            leadId.value = `WEB-${stamp}-${randomPart}`;
+        }
         const targetDelivery = document.getElementById('targetDelivery');
         if (targetDelivery) {
             const localToday = new Date();

@@ -128,35 +128,42 @@
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_autoresponse" value="Thank you for contacting Entrol Rongxing. We have received your socks inquiry and will review your product, quantity, customization and delivery requirements. Our team will reply within one business day. For an urgent discussion, please contact WhatsApp +86 152 6313 0999.">
                     <input type="hidden" name="_url" value="https://socks.entrol.com/contact.html">
+                    <input type="hidden" name="lead_id" id="leadId" value="">
                     <input type="hidden" name="source_page" id="sourcePage" value="contact">
+                    <input type="hidden" name="landing_page" id="landingPage" value="">
+                    <input type="hidden" name="referrer" id="referrer" value="">
                     <input type="hidden" name="utm_source" id="utmSource" value="">
                     <input type="hidden" name="utm_medium" id="utmMedium" value="">
                     <input type="hidden" name="utm_campaign" id="utmCampaign" value="">
+                    <input type="hidden" name="utm_content" id="utmContent" value="">
+                    <input type="hidden" name="utm_term" id="utmTerm" value="">
+                    <input type="hidden" name="gclid" id="gclid" value="">
+                    <input type="hidden" name="msclkid" id="msclkid" value="">
                     <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name" data-i18n="contactPage.labelName">Your Name *</label>
-                            <input type="text" id="name" name="name" required data-i18n-placeholder="contactPage.phName" placeholder="Enter your name">
+                            <input type="text" id="name" name="name" required autocomplete="name" data-i18n-placeholder="contactPage.phName" placeholder="Enter your name">
                         </div>
                         <div class="form-group">
                             <label for="company" data-i18n="contactPage.labelCompany">Company Name *</label>
-                            <input type="text" id="company" name="company" required data-i18n-placeholder="contactPage.phCompany" placeholder="Enter company name">
+                            <input type="text" id="company" name="company" required autocomplete="organization" data-i18n-placeholder="contactPage.phCompany" placeholder="Enter company name">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="email" data-i18n="contactPage.labelEmail">Email *</label>
-                            <input type="email" id="email" name="email" required data-i18n-placeholder="contactPage.phEmail" placeholder="Enter email address">
+                            <input type="email" id="email" name="email" required autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" data-i18n-placeholder="contactPage.phEmail" placeholder="Enter email address">
                         </div>
                         <div class="form-group">
                             <label for="phone" data-i18n="contactPage.labelPhone">Phone</label>
-                            <input type="tel" id="phone" name="phone" data-i18n-placeholder="contactPage.phPhone" placeholder="Enter phone number">
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" data-i18n-placeholder="contactPage.phPhone" placeholder="Enter phone number">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="country" data-i18n="contactPage.labelCountry">Country/Region *</label>
-                            <select id="country" name="country" required>
+                            <select id="country" name="country" required autocomplete="country">
                                 <option value="" data-i18n="contactPage.optCountry">Select country/region</option>
                                 <option value="US">United States</option>
                                 <option value="UK">United Kingdom</option>
@@ -218,8 +225,8 @@
                     </div>
                     <div class="form-group">
                         <label for="attachment">Design / Tech Pack / Reference File</label>
-                        <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png">
-                        <p class="form-help">Optional. PDF, Office document, JPG or PNG. Maximum total upload size: 10 MB.</p>
+                        <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" aria-describedby="attachmentHelp">
+                        <p class="form-help" id="attachmentHelp">Optional. PDF, Office document, JPG or PNG. Maximum total upload size: 10 MB.</p>
                     </div>
                     <div class="form-submit">
                         <button type="submit" class="btn btn-primary btn-large" data-i18n="contactPage.submitBtn">Submit Inquiry</button>
