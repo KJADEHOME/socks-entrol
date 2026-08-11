@@ -133,8 +133,15 @@ ul {
 .nav-toggle {
     display: none;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 5px;
     cursor: pointer;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
 }
 
 .nav-toggle span {
@@ -1397,12 +1404,50 @@ ul {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        position: relative;
+    }
+
     .nav-menu {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: -20px;
+        right: -20px;
+        z-index: 1001;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 20px 16px;
+        background: var(--bg-white);
+        border-top: 1px solid var(--border-color);
+        box-shadow: var(--shadow-md);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu a {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 9px 4px;
     }
     
     .nav-toggle {
         display: flex;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
     }
     
     .hero {
@@ -1432,6 +1477,19 @@ ul {
     
     .form-wrapper {
         padding: 30px 20px;
+    }
+
+    .form-group input,
+    .form-group select {
+        min-height: 48px;
+    }
+
+    .form-submit .btn,
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 360px;
+        min-height: 48px;
+        text-align: center;
     }
     
     .footer-grid {
