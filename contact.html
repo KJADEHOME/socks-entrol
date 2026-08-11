@@ -98,6 +98,12 @@
                     <a href="tel:+8615263130999" class="contact-link">+86 152 6313 0999</a>
                 </div>
                 <div class="contact-card">
+                    <div class="contact-icon">WA</div>
+                    <h3>WhatsApp</h3>
+                    <p>Send product, quantity and sample requirements</p>
+                    <a data-track="contact-page-whatsapp" href="https://wa.me/8615263130999?text=Hello%20Entrol%20Rongxing%2C%20I%20am%20looking%20for%20a%20socks%20manufacturer.%20Product%3A%20____%3B%20Quantity%3A%20____%3B%20Target%20market%3A%20____%3B%20Customization%3A%20____.%20Please%20advise%20MOQ%2C%20sample%20details%20and%20quotation." class="contact-link" target="_blank" rel="noopener noreferrer">Start a Buyer Conversation</a>
+                </div>
+                <div class="contact-card">
                     <div class="contact-icon">🏭</div>
                     <h3 data-i18n="contactPage.addrTitle">Factory Address</h3>
                     <p data-i18n="contactPage.addrDesc">Datang Town, Zhuji, Zhejiang, China</p>
@@ -114,9 +120,14 @@
                 <div class="form-header">
                     <h2 data-i18n="contactPage.formTitle">Send Inquiry</h2>
                     <p data-i18n="contactPage.formDesc">Fill out the form below and we will contact you soon</p>
+                    <p class="buyer-pdf-link"><a data-track="contact-shea-pdf-download" href="assets/downloads/Entrol_Rongxing_Shea_Butter_Feather_Yarn_Socks.pdf" download>Download the Shea Butter Feather Yarn Socks buyer PDF</a></p>
                 </div>
-                <form class="contact-form" id="contactForm" action="https://formsubmit.co/5dc5f6116cc8c7d3c7280ac008322da9" method="POST">
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/5dc5f6116cc8c7d3c7280ac008322da9" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_subject" value="New B2B socks inquiry from socks.entrol.com">
+                    <input type="hidden" name="_next" value="https://socks.entrol.com/thank-you.html">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_autoresponse" value="Thank you for contacting Entrol Rongxing. We have received your socks inquiry and will review your product, quantity, customization and delivery requirements. Our team will reply within one business day. For an urgent discussion, please contact WhatsApp +86 152 6313 0999.">
+                    <input type="hidden" name="_url" value="https://socks.entrol.com/contact.html">
                     <input type="hidden" name="source_page" id="sourcePage" value="contact">
                     <input type="hidden" name="utm_source" id="utmSource" value="">
                     <input type="hidden" name="utm_medium" id="utmMedium" value="">
@@ -173,6 +184,24 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="buyerRole">Your Purchasing Role</label>
+                            <select id="buyerRole" name="buyer_role">
+                                <option value="">Select your role</option>
+                                <option value="brand">Brand / Private Label</option>
+                                <option value="retailer">Retailer / E-commerce</option>
+                                <option value="importer">Importer / Distributor</option>
+                                <option value="sourcing">Sourcing Agent</option>
+                                <option value="promotional">Promotional / Gift Company</option>
+                                <option value="other">Other Business Buyer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="targetDelivery">Target Delivery Date</label>
+                            <input type="date" id="targetDelivery" name="target_delivery_date">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="quantity" data-i18n="contactPage.labelQty">Estimated Quantity</label>
                         <select id="quantity" name="quantity">
@@ -186,6 +215,11 @@
                     <div class="form-group">
                         <label for="message" data-i18n="contactPage.labelMsg">Detailed Requirements *</label>
                         <textarea id="message" name="message" rows="5" required data-i18n-placeholder="contactPage.phMsg" placeholder="Please describe your specific requirements, including product specifications, customization needs, target market, etc."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="attachment">Design / Tech Pack / Reference File</label>
+                        <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png">
+                        <p class="form-help">Optional. PDF, Office document, JPG or PNG. Maximum total upload size: 10 MB.</p>
                     </div>
                     <div class="form-submit">
                         <button type="submit" class="btn btn-primary btn-large" data-i18n="contactPage.submitBtn">Submit Inquiry</button>

@@ -1149,6 +1149,121 @@ ul {
     color: var(--text-light);
 }
 
+.form-header .buyer-pdf-link {
+    margin-top: 14px;
+}
+
+.form-help {
+    margin-top: 7px;
+    color: var(--text-light);
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.buyer-pdf-link a {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.buyer-pdf-link a:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.thank-you-page {
+    min-height: calc(100vh - 180px);
+    padding: 90px 20px;
+    background: var(--bg-light);
+}
+
+.thank-you-card {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 54px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.thank-you-mark {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #e7f6ef;
+    color: #16855b;
+    font-size: 38px;
+    line-height: 64px;
+    font-weight: 700;
+}
+
+.thank-you-card h1 {
+    max-width: 720px;
+    margin: 0 auto 18px;
+    color: var(--primary-color);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+}
+
+.thank-you-lead {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.thank-you-next {
+    margin: 0 auto 32px;
+    padding: 26px 30px;
+    border-radius: 10px;
+    background: var(--bg-light);
+    text-align: left;
+}
+
+.thank-you-next h2 {
+    margin-bottom: 14px;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+.thank-you-next ol {
+    margin: 0;
+    padding-left: 22px;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.thank-you-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.thank-you-contact {
+    margin-top: 26px;
+    color: var(--text-light);
+}
+
+.thank-you-contact a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+@media (max-width: 640px) {
+    .thank-you-page { padding: 50px 16px; }
+    .thank-you-card { padding: 34px 20px; }
+    .thank-you-next { padding: 22px 20px; }
+    .thank-you-actions .btn { width: 100%; }
+}
+
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;

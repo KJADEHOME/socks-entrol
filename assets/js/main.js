@@ -738,6 +738,12 @@ document.addEventListener('DOMContentLoaded', function() {
         prefill('utmCampaign', 'utm_campaign');
         const sourcePage = document.getElementById('sourcePage');
         if (sourcePage) sourcePage.value = document.referrer || 'direct';
+        const targetDelivery = document.getElementById('targetDelivery');
+        if (targetDelivery) {
+            const localToday = new Date();
+            localToday.setMinutes(localToday.getMinutes() - localToday.getTimezoneOffset());
+            targetDelivery.min = localToday.toISOString().slice(0, 10);
+        }
 
         let formStarted = false;
         contactForm.addEventListener('input', function() {
@@ -768,6 +774,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!emailRegex.test(data.email)) {
                 e.preventDefault();
                 alert(lang === 'zh' ? '请输入有效的电子邮箱地址' : 'Please enter a valid email address');
+                return;
+            }
+
+            const attachment = this.querySelector('input[type="file"][name="attachment"]');
+            if (attachment && attachment.files && attachment.files[0] && attachment.files[0].size > 10 * 1024 * 1024) {
+                e.preventDefault();
+                alert(lang === 'zh' ? '附件大小不能超过 10 MB' : 'The attachment must not exceed 10 MB');
                 return;
             }
             
@@ -982,6 +995,13 @@ document.addEventListener('click', function(event) {
     const href = link.getAttribute('href') || '';
     const label = link.dataset.track;
     if (label) gtag('event', 'select_content', { content_type: 'cta', item_id: label });
+    if (href.toLowerCase().split('?')[0].endsWith('.pdf')) {
+        gtag('event', 'file_download', {
+            file_name: href.split('/').pop().split('?')[0],
+            file_extension: 'pdf',
+            link_url: link.href
+        });
+    }
     if (href.includes('wa.me')) gtag('event', 'contact', { method: 'whatsapp' });
     if (href.startsWith('mailto:')) gtag('event', 'contact', { method: 'email' });
     if (href.startsWith('tel:')) gtag('event', 'contact', { method: 'phone' });
