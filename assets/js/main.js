@@ -835,6 +835,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert(lang === 'zh' ? '附件大小不能超过 10 MB' : 'The attachment must not exceed 10 MB');
                 return;
             }
+
+            // Create a short-lived, one-time proof that the thank-you page was
+            // reached after a valid form submission attempt in this tab.
+            try {
+                sessionStorage.setItem('entrol_b2b_submission', JSON.stringify({
+                    lead_id: data.lead_id || 'not_available',
+                    product_interest: data.interest,
+                    quantity_range: data.quantity || 'not_specified',
+                    submitted_at: Date.now()
+                }));
+            } catch (error) {
+                // Storage restrictions must never block a buyer's inquiry.
+            }
             
             // Show loading state
             const submitBtn = this.querySelector('button[type="submit"]');

@@ -13,10 +13,31 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-1XM8EP6HP5');
-      gtag('event', 'generate_lead', {
-        form_name: 'b2b_inquiry',
-        lead_type: 'socks_oem_odm'
-      });
+      try {
+        const submissionKey = 'entrol_b2b_submission';
+        const submission = JSON.parse(sessionStorage.getItem(submissionKey) || 'null');
+        const isRecentSubmission = submission &&
+          Number.isFinite(submission.submitted_at) &&
+          Date.now() - submission.submitted_at >= 0 &&
+          Date.now() - submission.submitted_at < 2 * 60 * 60 * 1000;
+
+        if (isRecentSubmission) {
+          gtag('event', 'generate_lead', {
+            form_name: 'b2b_inquiry',
+            lead_type: 'socks_oem_odm',
+            lead_id: submission.lead_id,
+            product_interest: submission.product_interest,
+            quantity_range: submission.quantity_range
+          });
+        }
+        sessionStorage.removeItem(submissionKey);
+      } catch (error) {
+        try {
+          sessionStorage.removeItem('entrol_b2b_submission');
+        } catch (storageError) {
+          // Analytics storage restrictions must not affect the page experience.
+        }
+      }
     </script>
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
