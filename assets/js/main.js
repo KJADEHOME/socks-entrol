@@ -5,7 +5,7 @@ const i18n = {
     en: {
         meta: {
             title: 'Entrol Rongxing - Professional Socks Manufacturer | B2B OEM/ODM',
-            productsTitle: 'Products - Entrol Rongxing | Professional Socks Manufacturer',
+            productsTitle: 'Custom Socks OEM/ODM Product Range | Entrol Rongxing',
             aboutTitle: 'About Us - Entrol Rongxing | Professional Socks Manufacturer',
             contactTitle: 'Contact Us - Entrol Rongxing | Professional Socks Manufacturer',
             blogTitle: 'Blog - Entrol Rongxing | Industry Insights & Factory Updates'
@@ -13,7 +13,7 @@ const i18n = {
         nav: { home: 'Home', products: 'Products', about: 'About', blog: 'Blog', contact: 'Contact' },
         hero: {
             title: 'Professional Socks Manufacturer',
-            subtitle: '20 Years Experience · 3 Million Pairs Monthly · Serving Global Brands',
+            subtitle: '20+ Years Experience · 3 Million Pairs Monthly · Buyer-Approved Sampling',
             desc: 'Specializing in double-cylinder jacquard, terry socks, cotton socks, double layer jacquard, indoor shoes, foot covers, velvet socks, coarse needle socks, and transfer pattern socks.',
             btnProducts: 'Browse Products',
             btnContact: 'Contact Us'
@@ -28,7 +28,7 @@ const i18n = {
             title: 'Why Choose Us',
             subtitle: 'Large-scale Production, International Quality Assurance'
         },
-        partners: { title: 'Our Partners', subtitle: 'Trusted by International Brands' },
+        partners: { title: 'Buyer Types We Support', subtitle: 'Factory-direct development for international B2B sourcing programs' },
         cta: {
             title: 'Start Your Custom Order',
             desc: 'Whether you need OEM manufacturing or ODM design, we provide professional solutions',
@@ -162,7 +162,9 @@ const i18n = {
             value4: 'Logistics arrangement',
             ctaTitle: 'Get Complete Product Catalog',
             ctaDesc: 'Nine series, hundreds of products. Welcome to request detailed product information and quotation',
-            ctaBtn: 'Contact Now'
+            ctaBtn: 'Contact Now',
+            quoteProduct: 'Request Quote for This Product',
+            askWhatsApp: 'Ask on WhatsApp'
         },
         // About Page
         aboutPage: {
@@ -192,12 +194,12 @@ const i18n = {
             cap3Desc: 'Strict quality inspection process with full control from raw materials to finished products. Support various packaging customization including hangtags, labels, and packaging boxes.',
             certTitle: 'Certifications',
             certSubtitle: 'International standards, quality assurance',
-            certIntro: 'Our company has maintained multiple international certifications for 20 consecutive years. Product quality and management systems meet international standards, making us a trustworthy partner.',
+            certIntro: 'Factory audit and certification documents are available for buyer review. Current validity, scope and product applicability are confirmed for each sourcing program.',
             certQuality: 'Quality Certifications',
             certLabor: 'Labor Certifications',
             certEnv: 'Environmental Certifications',
-            partnerTitle: 'Partner Brands',
-            partnerSubtitle: 'Trusted by international renowned brands for over 15 years',
+            partnerTitle: 'B2B Buyers We Support',
+            partnerSubtitle: 'Manufacturing experience across apparel, retail, importing and distribution programs',
             partnerMain: 'Major Partner',
             partnerKey: 'Key Partner',
             partnerBrand: 'Brand Partner',
@@ -209,13 +211,13 @@ const i18n = {
             tl2Title: 'Expansion',
             tl2Desc: 'Introduced advanced equipment, expanded production scale, began serving international brands',
             tl3Title: 'International Certification',
-            tl3Desc: 'Obtained WALMART, BSCI and other international certifications, entered mainstream international supply chains',
+            tl3Desc: 'Expanded factory audit and compliance capabilities for international supply-chain requirements',
             tl4Title: 'Equipment Upgrade',
             tl4Desc: 'Sock machine count reached 800, monthly production capacity exceeded 3 million pairs',
             tl5Title: 'Green Transformation',
             tl5Desc: 'Obtained GRS, OEKO-TEX100 environmental certifications, promoting green production',
             tl6Title: 'Continued Growth',
-            tl6Desc: 'Annual sales reached 85 million RMB, with continuous increase in partner brands',
+            tl6Desc: 'Expanded product development and production support for international B2B sourcing programs',
             ctaTitle: 'Looking Forward to Working With You',
             ctaDesc: '20 years of professional experience, 800 advanced machines, 160 professional team members, providing you with quality sock manufacturing services',
             ctaBtn: 'Contact Us'
@@ -262,7 +264,7 @@ const i18n = {
             q1: 'Q: What is the Minimum Order Quantity (MOQ)?',
             a1: 'A: Our standard MOQ is 3,000 pairs/color/style. For long-term partners or large volume orders, we can negotiate more flexible MOQs.',
             q2: 'Q: How long does sampling take?',
-            a2: 'A: Regular sampling takes 7-10 working days. Complex processes or special materials may require 10-15 working days. Sampling fees can be deducted upon bulk order placement.',
+            a2: 'A: Sampling timing and cost depend on the construction, yarn availability, artwork and treatment requirements. We confirm the applicable route after reviewing your specification.',
             q3: 'Q: What is the lead time for bulk orders?',
             a3: 'A: Depending on order quantity and process complexity, bulk order lead time is typically 30-45 days. We will provide an accurate delivery schedule upon order confirmation.',
             q4: 'Q: What payment methods do you accept?',
@@ -270,7 +272,7 @@ const i18n = {
             q5: 'Q: Do you provide packaging design services?',
             a5: 'A: Yes, we can provide packaging design services including hangtags, labels, and packaging boxes. You may also provide your own design files.',
             q6: 'Q: How do you ensure product quality?',
-            a6: 'A: We have a strict quality control process with 6 inspection stages from raw materials to finished products. All products meet international quality standards.',
+            a6: 'A: We use six inspection stages from incoming materials to packing. Buyer-specific standards, testing and documentation are confirmed for each order.',
             mapTitle: 'Factory Location',
             mapDesc: 'Zhuji, Zhejiang - China\'s Sock Capital'
         },
@@ -299,7 +301,7 @@ const i18n = {
             post2Title: 'World Cup Socks Series: From Design Concept to Mass Production',
             post2Excerpt: 'Our World Cup-themed socks have equipped fans across Europe, North America, and Southeast Asia. Here\'s how we turn a design brief into millions of pairs—on schedule and on quality.',
             post3Title: '6-Stage QC: How We Ensure Every Pair Meets International Standards',
-            post3Excerpt: 'From yarn inspection to final packaging, our strict 6-stage quality control process catches defects early—before they leave the factory. Learn how we maintain 99.2% pass rate across all production runs.',
+            post3Excerpt: 'From yarn inspection to final packaging, our six-stage quality control process is designed to identify material, construction, sizing and packing issues before shipment.',
             post4Title: 'Inside Our 800-Machine Workshop: How Scale Enables Consistency',
             post4Excerpt: 'Scale matters in manufacturing. With 800 sock machines under one roof, we can maintain uniform quality standards, reduce per-unit costs, and deliver 3 million pairs monthly—without sacrificing precision.',
             post5Title: 'Sustainability Trends in Socks Manufacturing: What Buyers Need to Know',
@@ -322,7 +324,7 @@ const i18n = {
         nav: { home: '首页', products: '产品', about: '关于', blog: '博客', contact: '联系' },
         hero: {
             title: '专业袜子制造商',
-            subtitle: '20年经验 · 月产300万双 · 服务全球品牌',
+            subtitle: '20多年经验 · 月产300万双 · 买家确认样品后量产',
             desc: '专注双针提花袜、毛圈袜、纯棉袜、双层提花袜、室内鞋、四季脚套、半边绒袜、粗针袜、移圈袜等系列产品。',
             btnProducts: '浏览产品',
             btnContact: '联系我们'
@@ -337,7 +339,7 @@ const i18n = {
             title: '为什么选择我们',
             subtitle: '规模化生产，国际化品质保障'
         },
-        partners: { title: '合作伙伴', subtitle: '国际品牌信赖之选' },
+        partners: { title: '服务的买家类型', subtitle: '为国际B2B采购项目提供工厂直连开发支持' },
         cta: {
             title: '开启您的定制之旅',
             desc: '无论您需要OEM代工生产还是ODM设计开发，我们都能提供专业解决方案',
@@ -471,7 +473,9 @@ const i18n = {
             value4: '物流配送安排',
             ctaTitle: '获取完整产品目录',
             ctaDesc: '九大系列，数百款产品，欢迎索取详细产品资料和报价单',
-            ctaBtn: '立即咨询'
+            ctaBtn: '立即咨询',
+            quoteProduct: '询问此产品报价',
+            askWhatsApp: '通过 WhatsApp 咨询'
         },
         // About Page
         aboutPage: {
@@ -501,12 +505,12 @@ const i18n = {
             cap3Desc: '严格的质检流程，从原材料到成品全程把控。支持各类包装定制，包括吊牌、标签、包装盒等。',
             certTitle: '认证资质',
             certSubtitle: '国际标准，品质保证',
-            certIntro: '本公司连续20年通过多项国际认证，产品质量和管理体系符合国际标准，是您值得信赖的合作伙伴。',
+            certIntro: '工厂审核与认证文件可供买家审阅，具体有效期、适用范围和产品要求按每个采购项目确认。',
             certQuality: '质量认证',
             certLabor: '人权认证',
             certEnv: '环保认证',
-            partnerTitle: '合作品牌',
-            partnerSubtitle: '深受国际知名品牌信赖，合作15年以上',
+            partnerTitle: '服务的B2B买家',
+            partnerSubtitle: '具备服装品牌、零售商、进口商和分销商项目的生产经验',
             partnerMain: '主要合作伙伴',
             partnerKey: '重要合作伙伴',
             partnerBrand: '品牌合作伙伴',
@@ -518,13 +522,13 @@ const i18n = {
             tl2Title: '扩大生产',
             tl2Desc: '引进先进设备，扩大生产规模，开始服务国际品牌',
             tl3Title: '国际认证',
-            tl3Desc: '通过WALMART、BSCI等国际认证，进入国际主流供应链',
+            tl3Desc: '持续完善面向国际供应链要求的工厂审核与合规能力',
             tl4Title: '设备升级',
             tl4Desc: '袜机数量达到800台，月产能突破300万双',
             tl5Title: '环保转型',
             tl5Desc: '通过GRS、OEKO-TEX100环保认证，推进绿色生产',
             tl6Title: '持续增长',
-            tl6Desc: '年销售额达8500万元，合作品牌持续增加',
+            tl6Desc: '持续扩展面向国际B2B采购项目的产品开发与生产支持',
             ctaTitle: '期待与您合作',
             ctaDesc: '20年专业经验，800台先进设备，160名专业团队，为您提供优质袜子制造服务',
             ctaBtn: '联系我们'
@@ -571,7 +575,7 @@ const i18n = {
             q1: 'Q: 最小起订量（MOQ）是多少？',
             a1: 'A: 我们的标准MOQ为3000双/色/款。对于长期合作客户或大批量订单，我们可以协商更灵活的起订量。',
             q2: 'Q: 打样需要多长时间？',
-            a2: 'A: 常规打样周期为7-10个工作日。复杂工艺或特殊材料可能需要10-15个工作日。打样费用在大货下单后可抵扣。',
+            a2: 'A: 打样周期和费用取决于结构、纱线供应、图稿和特殊处理要求，审核规格后确认具体方案。',
             q3: 'Q: 大货交期是多久？',
             a3: 'A: 根据订单数量和工艺复杂度，大货交期通常为30-45天。我们会在确认订单时提供准确的交货时间表。',
             q4: 'Q: 支持哪些付款方式？',
@@ -608,7 +612,7 @@ const i18n = {
             post2Title: '世界杯系列袜子：从设计概念到大规模生产的全过程',
             post2Excerpt: '我们的世界杯主题袜子已装备了欧洲、北美和东南亚的球迷。以下是我们如何将设计稿转化为数百万双产品——按时按质交付。',
             post3Title: '6步质检：如何确保每一双都达到国际标准',
-            post3Excerpt: '从纱线检验到最终包装，我们严格的6步质检流程在产品离厂前就能发现缺陷。了解我们如何在所有生产批次中保持99.2%的通过率。',
+            post3Excerpt: '从纱线检验到最终包装，六步质检流程用于在出货前识别材料、结构、尺寸和包装问题。',
             post4Title: '走进800台袜机车间：规模如何保障品质一致性',
             post4Excerpt: '在制造业中，规模决定一切。800台袜机同在一个屋檐下，使我们能够保持统一的品质标准、降低单件成本、每月交付300万双——同时不牺牲精度。',
             post5Title: '袜子制造可持续趋势：买家必须了解的事项',
@@ -996,6 +1000,49 @@ document.querySelectorAll('.product-gallery-thumbs img').forEach(thumb => {
         }
     });
 });
+
+// Add product-specific inquiry paths beside every product specification.
+(function() {
+    const interestBySection = {
+        shuangzhen: 'custom',
+        maoquan: 'terry-socks',
+        chunmian: 'cotton-socks',
+        shuangceng: 'custom',
+        shinei: 'floor-socks',
+        siji: 'custom',
+        banbian: 'feather-socks',
+        cuzhen: 'custom',
+        yiquan: 'custom'
+    };
+
+    document.querySelectorAll('.product-section[id]').forEach(section => {
+        const info = section.querySelector('.product-detail-info');
+        const heading = section.querySelector('.product-category-header h2');
+        if (!info || !heading || info.querySelector('.product-inquiry-actions')) return;
+
+        const productName = heading.textContent.trim();
+        const sectionId = section.id;
+        const interest = interestBySection[sectionId] || 'custom';
+        const message = `I am interested in ${productName}. Please review my quantity, target market, customization, sample and packaging requirements.`;
+        const query = new URLSearchParams({
+            interest,
+            message,
+            utm_source: 'website',
+            utm_medium: 'product_section',
+            utm_campaign: 'product_inquiry',
+            utm_content: sectionId
+        });
+        const whatsappText = `Hello Entrol Rongxing, I am interested in ${productName}. Quantity: ____; Target market: ____; Customization: ____; Packaging: ____. Please advise the applicable MOQ and sample route.`;
+
+        const actions = document.createElement('div');
+        actions.className = 'product-inquiry-actions';
+        actions.innerHTML = `
+            <a class="btn btn-primary" data-i18n="productsPage.quoteProduct" data-track="product-${sectionId}-quote" href="contact.html?${query.toString()}">Request Quote for This Product</a>
+            <a class="btn btn-secondary" data-i18n="productsPage.askWhatsApp" data-track="product-${sectionId}-whatsapp" href="https://wa.me/8615263130999?text=${encodeURIComponent(whatsappText)}" target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
+        `;
+        info.appendChild(actions);
+    });
+})();
 
 // Floating WhatsApp & WeChat Contact Buttons - Injected into all pages
 (function() {
