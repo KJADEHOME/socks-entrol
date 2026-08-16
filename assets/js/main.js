@@ -45,8 +45,8 @@ const i18n = {
         },
         // Products Page
         productsPage: {
-            title: 'Products',
-            subtitle: '9 Product Series, Meeting Diverse Market Demands',
+            title: 'Custom Socks Product Range',
+            subtitle: 'Nine manufacturing programs for brands, retailers, importers and distributors',
             cat1: 'Double-Cylinder Jacquard',
             cat2: 'Terry Socks',
             cat3: '100% Cotton Socks',
