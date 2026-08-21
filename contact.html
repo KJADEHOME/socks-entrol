@@ -122,13 +122,9 @@
                     <p data-i18n="contactPage.formDesc">Fill out the form below and we will contact you soon</p>
                     <p class="buyer-pdf-link"><a data-track="contact-shea-pdf-download" href="assets/downloads/Entrol_Rongxing_Shea_Butter_Feather_Yarn_Socks.pdf" download>Download the Shea Butter Feather Yarn Socks buyer PDF</a></p>
                 </div>
-                <form class="contact-form" id="contactForm" action="https://formsubmit.co/5dc5f6116cc8c7d3c7280ac008322da9" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="_subject" value="New B2B socks inquiry from socks.entrol.com">
-                    <input type="hidden" name="_next" value="https://socks.entrol.com/thank-you.html">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_autoresponse" value="Thank you for contacting Entrol Rongxing. We have received your socks inquiry and will review your product, quantity, customization and delivery requirements. Our team will reply within one business day. For an urgent discussion, please contact WhatsApp +86 152 6313 0999.">
-                    <input type="hidden" name="_url" value="https://socks.entrol.com/contact.html">
-                    <input type="hidden" name="lead_id" id="leadId" value="">
+                <form class="contact-form" id="contactForm" novalidate>
+                    <input type="hidden" name="request_id" id="requestId" value="">
+                    <input type="hidden" name="submission_type" value="inquiry">
                     <input type="hidden" name="source_page" id="sourcePage" value="contact">
                     <input type="hidden" name="landing_page" id="landingPage" value="">
                     <input type="hidden" name="referrer" id="referrer" value="">
@@ -139,7 +135,7 @@
                     <input type="hidden" name="utm_term" id="utmTerm" value="">
                     <input type="hidden" name="gclid" id="gclid" value="">
                     <input type="hidden" name="msclkid" id="msclkid" value="">
-                    <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <input type="text" name="website" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name" data-i18n="contactPage.labelName">Your Name *</label>
@@ -224,12 +220,11 @@
                         <textarea id="message" name="message" rows="5" required data-i18n-placeholder="contactPage.phMsg" placeholder="Please describe your specific requirements, including product specifications, customization needs, target market, etc."></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="attachment">Design / Tech Pack / Reference File</label>
-                        <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" aria-describedby="attachmentHelp">
-                        <p class="form-help" id="attachmentHelp">Optional. PDF, Office document, JPG or PNG. Maximum total upload size: 10 MB.</p>
+                        <p class="form-help">Need to share a design, tech pack or reference file? Submit this inquiry first, then reply to our acknowledgement email with the attachment.</p>
                     </div>
                     <div class="form-submit">
                         <button type="submit" class="btn btn-primary btn-large" data-i18n="contactPage.submitBtn">Submit Inquiry</button>
+                        <p class="form-help" id="contactFormStatus" role="status" aria-live="polite"></p>
                     </div>
                 </form>
             </div>

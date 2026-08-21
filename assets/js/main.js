@@ -779,17 +779,13 @@ document.addEventListener('DOMContentLoaded', function() {
         prefill('gclid', 'gclid');
         prefill('msclkid', 'msclkid');
         const sourcePage = document.getElementById('sourcePage');
-        if (sourcePage) sourcePage.value = document.referrer || 'direct';
+        if (sourcePage) sourcePage.value = window.location.href;
         const landingPage = document.getElementById('landingPage');
         if (landingPage) landingPage.value = window.location.href;
         const referrer = document.getElementById('referrer');
         if (referrer) referrer.value = document.referrer || 'direct';
-        const leadId = document.getElementById('leadId');
-        if (leadId) {
-            const stamp = new Date().toISOString().slice(0, 10).replaceAll('-', '');
-            const randomPart = Math.random().toString(36).slice(2, 8).toUpperCase();
-            leadId.value = `WEB-${stamp}-${randomPart}`;
-        }
+        const requestId = document.getElementById('requestId');
+        if (requestId) requestId.value = crypto.randomUUID();
         const targetDelivery = document.getElementById('targetDelivery');
         if (targetDelivery) {
             const localToday = new Date();
@@ -805,9 +801,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        contactForm.addEventListener('submit', function(e) {
-            // FormSubmit will handle the actual submission
-            // This is just for validation feedback
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
             const lang = LangManager.currentLang;
             
             // Get form data
@@ -816,7 +811,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Basic validation
             if (!data.name || !data.company || !data.email || !data.country || !data.interest || !data.message) {
-                e.preventDefault();
                 alert(lang === 'zh' ? '请填写所有必填项（*标记的字段）' : 'Please fill in all required fields (* marked)');
                 return;
             }
@@ -824,35 +818,16 @@ document.addEventListener('DOMContentLoaded', function() {
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(data.email)) {
-                e.preventDefault();
                 alert(lang === 'zh' ? '请输入有效的电子邮箱地址' : 'Please enter a valid email address');
                 return;
-            }
-
-            const attachment = this.querySelector('input[type="file"][name="attachment"]');
-            if (attachment && attachment.files && attachment.files[0] && attachment.files[0].size > 10 * 1024 * 1024) {
-                e.preventDefault();
-                alert(lang === 'zh' ? '附件大小不能超过 10 MB' : 'The attachment must not exceed 10 MB');
-                return;
-            }
-
-            // Create a short-lived, one-time proof that the thank-you page was
-            // reached after a valid form submission attempt in this tab.
-            try {
-                sessionStorage.setItem('entrol_b2b_submission', JSON.stringify({
-                    lead_id: data.lead_id || 'not_available',
-                    product_interest: data.interest,
-                    quantity_range: data.quantity || 'not_specified',
-                    submitted_at: Date.now()
-                }));
-            } catch (error) {
-                // Storage restrictions must never block a buyer's inquiry.
             }
             
             // Show loading state
             const submitBtn = this.querySelector('button[type="submit"]');
             submitBtn.textContent = lang === 'zh' ? '提交中...' : 'Submitting...';
             submitBtn.disabled = true;
+            const status = document.getElementById('contactFormStatus');
+            if (status) status.textContent = '';
 
             if (typeof gtag === 'function') {
                 gtag('event', 'lead_submit_attempt', {
@@ -862,7 +837,57 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
             
-            // Form will submit to FormSubmit
+            const payload = {
+                ...data,
+                product_interest: data.interest,
+                target_market: data.country,
+                contact: data.phone,
+                source_page: window.location.href,
+                landing_page: data.landing_page || window.location.href,
+                referrer: document.referrer || 'direct'
+            };
+
+            try {
+                const response = await fetch('https://jipgzavuxvnaisgxcvts.supabase.co/functions/v1/entrol-submit-lead', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Request-Id': data.request_id
+                    },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json().catch(() => ({}));
+                if (!response.ok || !result.ok) throw new Error(result.error || 'submission_failed');
+
+                try {
+                    sessionStorage.setItem('entrol_b2b_submission', JSON.stringify({
+                        lead_id: result.lead_id,
+                        product_interest: data.interest,
+                        quantity_range: data.quantity || 'not_specified',
+                        submitted_at: Date.now()
+                    }));
+                } catch (error) {
+                    // Storage restrictions must never block a stored inquiry.
+                }
+                if (typeof gtag === 'function') {
+                    gtag('event', 'lead_submit_success', {
+                        form_name: 'b2b_inquiry',
+                        lead_type: 'socks_oem_odm',
+                        lead_id: result.lead_id
+                    });
+                }
+                window.location.assign('thank-you.html');
+            } catch (error) {
+                console.error('Socks inquiry submission failed:', error);
+                if (status) {
+                    status.textContent = lang === 'zh'
+                        ? '提交失败，请重试或发送邮件至 wangyan@entrol.com。'
+                        : 'We could not save your inquiry. Please retry or email wangyan@entrol.com.';
+                }
+                submitBtn.textContent = lang === 'zh' ? '提交询盘' : 'Submit Inquiry';
+                submitBtn.disabled = false;
+                if (requestId) requestId.value = crypto.randomUUID();
+            }
         });
     }
     
