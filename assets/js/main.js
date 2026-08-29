@@ -5,16 +5,16 @@ const i18n = {
     en: {
         meta: {
             title: 'Entrol Rongxing - Professional Socks Manufacturer | B2B OEM/ODM',
-            productsTitle: 'Custom Socks OEM/ODM Product Range | Entrol Rongxing',
+            productsTitle: 'Wholesale Custom Socks Catalog | OEM/ODM China Factory',
             aboutTitle: 'About Us - Entrol Rongxing | Professional Socks Manufacturer',
             contactTitle: 'Contact Us - Entrol Rongxing | Professional Socks Manufacturer',
             blogTitle: 'Blog - Entrol Rongxing | Industry Insights & Factory Updates'
         },
         nav: { home: 'Home', products: 'Products', about: 'About', blog: 'Blog', contact: 'Contact' },
         hero: {
-            title: 'Professional Socks Manufacturer',
+            title: 'Custom Socks Manufacturer for Brands & Retailers',
             subtitle: '20+ Years Experience · 3 Million Pairs Monthly · Buyer-Approved Sampling',
-            desc: 'Specializing in double-cylinder jacquard, terry socks, cotton socks, double layer jacquard, indoor shoes, foot covers, velvet socks, coarse needle socks, and transfer pattern socks.',
+            desc: 'Develop private-label socks with custom yarns, patterns, colors, logos and retail packaging—all managed by one experienced manufacturing team.',
             btnProducts: 'Browse Products',
             btnContact: 'Contact Us'
         },
@@ -45,8 +45,8 @@ const i18n = {
         },
         // Products Page
         productsPage: {
-            title: 'Custom Socks Product Range',
-            subtitle: 'Nine manufacturing programs for brands, retailers, importers and distributors',
+            title: 'Wholesale Custom Socks for Brands & Retailers',
+            subtitle: 'Compare nine OEM/ODM manufacturing programs, from jacquard and terry to cotton, fuzzy and indoor collections',
             cat1: 'Double-Cylinder Jacquard',
             cat2: 'Terry Socks',
             cat3: '100% Cotton Socks',
@@ -316,16 +316,16 @@ const i18n = {
     zh: {
         meta: {
             title: 'Entrol Rongxing - 专业袜子制造商 | B2B OEM/ODM',
-            productsTitle: '产品中心 - Entrol Rongxing | 专业袜子制造商',
+            productsTitle: '批发定制袜产品目录 | 中国OEM/ODM工厂',
             aboutTitle: '关于我们 - Entrol Rongxing | 专业袜子制造商',
             contactTitle: '联系我们 - Entrol Rongxing | 专业袜子制造商',
             blogTitle: '博客 - Entrol Rongxing | 行业洞察 & 工厂动态'
         },
         nav: { home: '首页', products: '产品', about: '关于', blog: '博客', contact: '联系' },
         hero: {
-            title: '专业袜子制造商',
+            title: '面向品牌与零售商的定制袜制造商',
             subtitle: '20多年经验 · 月产300万双 · 买家确认样品后量产',
-            desc: '专注双针提花袜、毛圈袜、纯棉袜、双层提花袜、室内鞋、四季脚套、半边绒袜、粗针袜、移圈袜等系列产品。',
+            desc: '由经验丰富的制造团队统一完成定制纱线、图案、颜色、品牌标识、零售包装和批量生产。',
             btnProducts: '浏览产品',
             btnContact: '联系我们'
         },
@@ -356,8 +356,8 @@ const i18n = {
         },
         // Products Page
         productsPage: {
-            title: '产品中心',
-            subtitle: '九大产品系列，满足多元化市场需求',
+            title: '面向品牌与零售商的批发定制袜',
+            subtitle: '比较九种OEM/ODM制造方案，涵盖提花、毛圈、棉袜、绒袜和室内系列',
             cat1: '双针提花',
             cat2: '毛圈袜系列',
             cat3: '纯棉袜',

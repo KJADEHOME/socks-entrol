@@ -1561,6 +1561,12 @@ ul {
 .quality-grid span { color: var(--secondary-color); font-weight: 700; }
 .quality-grid h3 { color: var(--primary-color); margin: 8px 0; }
 .quality-grid p { color: var(--text-light); }
+.quality-grid .text-link { display: inline-block; margin-top: 10px; color: var(--primary-color); font-weight: 700; text-decoration: none; }
+.buyer-brief-panel { margin-top: 28px; padding: 28px; display: flex; align-items: center; justify-content: space-between; gap: 32px; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+.buyer-brief-panel > div { max-width: 760px; }
+.buyer-brief-panel h3 { color: var(--primary-color); margin: 6px 0 10px; }
+.buyer-brief-panel p { color: var(--text-light); margin: 0; }
+.buyer-brief-panel .btn { flex: 0 0 auto; }
 .intent-strip { background: #fff7ed; border-bottom: 1px solid #fed7aa; }
 .intent-strip-inner { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .intent-strip-inner a, .article-service-link a { color: var(--primary-color); font-weight: 700; }
@@ -1596,6 +1602,7 @@ ul {
     .buyer-solutions, .oem-process { padding: 56px 0; }
     .process-grid { grid-template-columns: 1fr; }
     .quality-grid { grid-template-columns: 1fr; }
+    .buyer-brief-panel { align-items: flex-start; flex-direction: column; padding: 22px; }
     .intent-strip-inner { align-items: flex-start; flex-direction: column; padding-top: 14px; padding-bottom: 14px; }
     .product-inquiry-actions { flex-direction: column; }
     .product-inquiry-actions .btn { width: 100%; min-height: 48px; }
