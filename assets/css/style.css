@@ -1591,7 +1591,7 @@ ul {
 .oem-process { background: var(--bg-light); }
 .buyer-grid, .process-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px;
 }
 .buyer-card {
@@ -1633,6 +1633,7 @@ ul {
 .buyer-brief-panel h3 { color: var(--primary-color); margin: 6px 0 10px; }
 .buyer-brief-panel p { color: var(--text-light); margin: 0; }
 .buyer-brief-panel .btn { flex: 0 0 auto; }
+.certification-review-panel { border-left: 4px solid var(--secondary-color); }
 .intent-strip { background: #fff7ed; border-bottom: 1px solid #fed7aa; }
 .intent-strip-inner { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .intent-strip-inner a, .article-service-link a { color: var(--primary-color); font-weight: 700; }

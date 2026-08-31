@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Entrol Rongxing">
+  <rect width="64" height="64" rx="14" fill="#173b67"/>
+  <path d="M23 12h18v21c0 4 3 7 7 7h4v8c0 8-6 12-15 12H24c-7 0-12-5-12-12 0-6 4-11 10-12l1-24z" fill="#f28c28"/>
+  <path d="M28 18h13M28 25h13M27 32h14" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".92"/>
+</svg>

@@ -5,7 +5,7 @@ const i18n = {
     en: {
         meta: {
             title: 'Entrol Rongxing - Professional Socks Manufacturer | B2B OEM/ODM',
-            productsTitle: 'Wholesale Custom Socks Catalog | OEM/ODM China Factory',
+            productsTitle: 'Wholesale Custom Socks Manufacturer | OEM/ODM Catalog',
             aboutTitle: 'About Us - Entrol Rongxing | Professional Socks Manufacturer',
             contactTitle: 'Contact Us - Entrol Rongxing | Professional Socks Manufacturer',
             blogTitle: 'Blog - Entrol Rongxing | Industry Insights & Factory Updates'
@@ -45,8 +45,8 @@ const i18n = {
         },
         // Products Page
         productsPage: {
-            title: 'Wholesale Custom Socks for Brands & Retailers',
-            subtitle: 'Compare nine OEM/ODM manufacturing programs, from jacquard and terry to cotton, fuzzy and indoor collections',
+            title: 'Wholesale Custom Socks Manufacturer & OEM Product Catalog',
+            subtitle: 'Compare nine factory-direct OEM/ODM sock programs for brands, retailers, distributors and sourcing teams',
             cat1: 'Double-Cylinder Jacquard',
             cat2: 'Terry Socks',
             cat3: '100% Cotton Socks',
