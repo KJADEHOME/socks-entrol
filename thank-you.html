@@ -25,10 +25,7 @@
         if (isRecentSubmission) {
           gtag('event', 'generate_lead', {
             form_name: 'b2b_inquiry',
-            lead_type: 'socks_oem_odm',
-            lead_id: submission.lead_id,
-            product_interest: submission.product_interest,
-            quantity_range: submission.quantity_range
+            form_path: 'contact'
           });
         }
         sessionStorage.removeItem(submissionKey);

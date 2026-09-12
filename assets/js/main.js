@@ -832,8 +832,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (typeof gtag === 'function') {
                 gtag('event', 'lead_submit_attempt', {
                     form_name: 'b2b_inquiry',
-                    product_interest: data.interest,
-                    quantity_range: data.quantity || 'not_specified'
+                    form_path: 'contact'
                 });
             }
             
@@ -861,9 +860,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 try {
                     sessionStorage.setItem('entrol_b2b_submission', JSON.stringify({
-                        lead_id: result.lead_id,
-                        product_interest: data.interest,
-                        quantity_range: data.quantity || 'not_specified',
                         submitted_at: Date.now()
                     }));
                 } catch (error) {
@@ -872,8 +868,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (typeof gtag === 'function') {
                     gtag('event', 'lead_submit_success', {
                         form_name: 'b2b_inquiry',
-                        lead_type: 'socks_oem_odm',
-                        lead_id: result.lead_id
+                        form_path: 'contact'
                     });
                 }
                 window.location.assign('thank-you.html');
