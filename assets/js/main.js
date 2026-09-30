@@ -1,5 +1,22 @@
 // Entrol Rongxing - Main JavaScript
 
+// SOCK_SPEC_EVALUATOR_START
+// Pure compatibility rules. These flag combinations for review; they do not certify performance.
+function evaluateSockSpecification(v) {
+    const issues = [];
+    const add = (level, message, fix) => issues.push({ level, message, fix });
+    if (v.sockFunction === 'compression' && ['feather-yarn', 'wool-blend'].includes(v.sockMaterial)) add('red', 'Compression-style fit with this yarn direction needs construction and stretch engineering review.', 'compression');
+    if (['athletic', 'outdoor', 'workwear'].includes(v.sockUse) && (v.sockMaterial === 'feather-yarn' || v.sockStructure === 'fuzzy')) add('red', 'Fuzzy or feather-yarn construction is not a default match for active, outdoor or workwear use.', 'use');
+    if (['under-1000', '1000-2999'].includes(v.quantity) && ['hangtag', 'gift-box', 'multipack'].includes(v.sockPackaging)) add('red', 'Low quantity with custom retail packaging requires MOQ and supplier feasibility confirmation.', 'packaging');
+    if (v.cottonPercent !== '' && (Number(v.cottonPercent) < 0 || Number(v.cottonPercent) > 100)) add('red', 'Cotton content must be between 0% and 100%.', 'cotton');
+    if (Number(v.cottonPercent) >= 95 && ['compression', 'grip'].includes(v.sockFunction)) add('amber', 'Very high cotton content may limit stretch or functional construction; confirm the full blend and sample.', 'cotton-blend');
+    if (v.sockGauge === '168-needle' && v.sockThickness === 'heavy') add('amber', 'Fine-detail needle direction and heavy thermal weight may require a different machine or construction.', 'gauge');
+    if (v.sockStructure === 'terry' && v.sockThickness === 'light') add('amber', 'Terry cushioning and lightweight direction need a measurable sample target.', 'thickness');
+    if (v.sockFunction === 'moisture' && v.sockMaterial === 'cotton-blend') add('amber', 'Moisture-management depends on the complete yarn blend and test method, not cotton wording alone.', 'material');
+    return { level: issues.some(issue => issue.level === 'red') ? 'red' : issues.length ? 'amber' : 'green', issues };
+}
+// SOCK_SPEC_EVALUATOR_END
+
 // Translation Data
 const i18n = {
     en: {
@@ -793,6 +810,48 @@ document.addEventListener('DOMContentLoaded', function() {
             targetDelivery.min = localToday.toISOString().slice(0, 10);
         }
 
+        const specIds = ['sockUse', 'sockMaterial', 'cottonPercent', 'sockThickness', 'sockGauge', 'sockSize', 'sockStructure', 'sockFunction', 'sockPackaging', 'quantity', 'complianceNeed'];
+        const specFields = Object.fromEntries(specIds.map(id => [id, document.getElementById(id)]));
+        const riskPanel = document.getElementById('specRiskPanel');
+        const riskTitle = document.getElementById('specRiskTitle');
+        const riskList = document.getElementById('specRiskList');
+        const riskAck = document.getElementById('specRiskAck');
+        const riskAckWrap = document.getElementById('specRiskAckWrap');
+        const fixButton = document.getElementById('applySpecFix');
+        const summaryField = document.getElementById('specificationSummary');
+        let specFingerprint = '';
+
+        const selectedLabel = field => field && field.selectedOptions ? field.selectedOptions[0].text.trim() : (field ? field.value.trim() : '');
+        const assessSockSpecification = () => {
+            const v = Object.fromEntries(Object.entries(specFields).map(([key, field]) => [key, field ? field.value : '']));
+            const evaluation = evaluateSockSpecification(v);
+            const issues = evaluation.issues;
+            const redIssues = issues.filter(issue => issue.level === 'red');
+            const level = evaluation.level;
+            const fingerprint = JSON.stringify(v);
+            if (fingerprint !== specFingerprint && riskAck) riskAck.checked = false;
+            specFingerprint = fingerprint;
+            if (riskPanel) riskPanel.dataset.level = level;
+            if (riskTitle) riskTitle.textContent = level === 'red' ? 'Engineering confirmation required before submission.' : level === 'amber' ? 'Review recommended before sampling.' : 'No obvious compatibility conflict detected; engineering review still applies.';
+            if (riskList) riskList.innerHTML = issues.map(issue => `<li>${issue.message}</li>`).join('');
+            if (riskAckWrap) riskAckWrap.hidden = !redIssues.length;
+            if (fixButton) fixButton.hidden = !redIssues.some(issue => issue.fix);
+            if (summaryField) summaryField.value = specIds.map(id => `${id}: ${selectedLabel(specFields[id]) || 'not specified'}`).join(' | ') + ` | risk: ${level}`;
+            return { level, issues, fingerprint };
+        };
+        specIds.forEach(id => { if (specFields[id]) specFields[id].addEventListener('change', assessSockSpecification); });
+        if (fixButton) fixButton.addEventListener('click', () => {
+            const assessment = assessSockSpecification();
+            assessment.issues.filter(issue => issue.level === 'red').forEach(issue => {
+                if (issue.fix === 'compression') specFields.sockFunction.value = 'standard';
+                if (issue.fix === 'use') specFields.sockUse.value = 'indoor';
+                if (issue.fix === 'packaging') specFields.sockPackaging.value = 'bulk';
+                if (issue.fix === 'cotton') specFields.cottonPercent.value = '';
+            });
+            assessSockSpecification();
+        });
+        assessSockSpecification();
+
         let formStarted = false;
         contactForm.addEventListener('input', function() {
             if (!formStarted && typeof gtag === 'function') {
@@ -804,6 +863,13 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             const lang = LangManager.currentLang;
+            const specificationAssessment = assessSockSpecification();
+            if (specificationAssessment.level === 'red' && (!riskAck || !riskAck.checked)) {
+                const status = document.getElementById('contactFormStatus');
+                if (status) status.textContent = lang === 'zh' ? '请先确认您理解该组合需要工程审核。' : 'Please acknowledge that this combination requires engineering confirmation.';
+                if (riskAck) riskAck.focus();
+                return;
+            }
             
             // Get form data
             const formData = new FormData(this);
@@ -1077,7 +1143,7 @@ document.querySelectorAll('.product-gallery-thumbs img').forEach(thumb => {
     });
 })();
 
-// Floating WhatsApp & WeChat Contact Buttons - Injected into all pages
+// Floating WhatsApp Contact Button - Injected into all pages
 (function() {
     const floatDiv = document.createElement('div');
     floatDiv.className = 'float-contact';
@@ -1087,33 +1153,8 @@ document.querySelectorAll('.product-gallery-thumbs img').forEach(thumb => {
             <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16.004 0C7.165 0 .002 7.163.002 16c0 2.825.737 5.584 2.137 8.006L.063 32l8.178-2.143A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.841 0 16.004 0zm0 29.18c-2.63 0-5.198-.686-7.456-1.986l-.535-.318-5.543 1.452 1.478-5.406-.35-.558A13.16 13.16 0 012.82 16c0-7.275 5.912-13.186 13.184-13.186 7.275 0 13.187 5.912 13.187 13.186 0 7.275-5.912 13.18-13.187 13.18zm7.23-9.878c-.396-.198-2.344-1.156-2.706-1.288-.363-.132-.627-.198-.891.198-.264.396-1.023 1.288-1.254 1.553-.231.264-.462.297-.858.099-.396-.198-1.672-.616-3.186-1.966-1.177-1.05-1.972-2.346-2.203-2.742-.231-.396-.025-.61.174-.808.178-.178.396-.462.594-.693.198-.231.264-.396.396-.66.132-.264.066-.495-.033-.693-.099-.198-.891-2.148-1.221-2.94-.322-.772-.649-.668-.891-.68l-.759-.013c-.264 0-.693.099-1.056.495-.363.396-1.386 1.354-1.386 3.303 0 1.949 1.419 3.831 1.617 4.095.198.264 2.794 4.266 6.77 5.982.946.408 1.684.652 2.26.834.95.302 1.814.259 2.497.157.762-.114 2.344-.958 2.674-1.883.33-.925.33-1.716.231-1.883-.099-.165-.363-.264-.759-.462z"/></svg>
             <span class="float-tooltip">Chat on WhatsApp</span>
         </a>
-        <div style="position:relative;">
-            <button class="float-contact-btn float-wechat" id="wechatFloatBtn" aria-label="WeChat">
-                <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M21.7 8.5c-3.1 0-5.7 2.1-5.7 4.8 0 1.5.8 2.8 2 3.7l-.5 1.5 1.7-1c.8.2 1.6.4 2.5.4.3 0 .5 0 .8-.1-.2-.5-.3-1-.3-1.5 0-2.9 2.7-5.3 6-5.3.3 0 .5 0 .8.1C28.4 8.6 25.3 8.5 21.7 8.5zM18 6.1c-.7 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.2.5 1.2 1.2-.5 1.2-1.2 1.2zm7.4 0c-.7 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.2.5 1.2 1.2-.5 1.2-1.2 1.2zM28.2 16.3c0-2.3-2.2-4.1-4.9-4.1s-4.9 1.8-4.9 4.1 2.2 4.1 4.9 4.1c.6 0 1.2-.1 1.7-.3l1.4.6-.4-1.2c1.3-.8 2.2-2 2.2-3.2zm-6.6-.8c-.5 0-.9-.4-.9-.9s.4-.9.9-.9.9.4.9.9-.4.9-.9.9zm3.5 0c-.5 0-.9-.4-.9-.9s.4-.9.9-.9.9.4.9.9-.5.9-.9.9zM12.2 13.3c-4.1 0-7.4 2.8-7.4 6.2 0 1.9 1 3.6 2.6 4.7l-.7 2 2.3-1.1c1 .3 2.1.5 3.2.5 4.1 0 7.4-2.8 7.4-6.2S16.3 13.3 12.2 13.3zm-3 4.7c-.6 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.2.5 1.2 1.2-.6 1.2-1.2 1.2zm6 0c-.6 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2 1.2.5 1.2 1.2-.6 1.2-1.2 1.2z"/></svg>
-                <span class="float-tooltip">WeChat: 15263130999</span>
-            </button>
-            <div class="float-wechat-popup" id="wechatPopup">
-                <p>WeChat ID: 15263130999</p>
-                <small>Scan or add WeChat ID to chat</small>
-            </div>
-        </div>
     `;
     document.body.appendChild(floatDiv);
-
-    // WeChat popup toggle
-    const wechatBtn = document.getElementById('wechatFloatBtn');
-    const wechatPopup = document.getElementById('wechatPopup');
-    if (wechatBtn && wechatPopup) {
-        wechatBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            wechatPopup.classList.toggle('active');
-        });
-        document.addEventListener('click', function(e) {
-            if (!wechatPopup.contains(e.target) && e.target !== wechatBtn) {
-                wechatPopup.classList.remove('active');
-            }
-        });
-    }
 })();
 
 // Measure commercial-intent clicks in GA4 without blocking navigation.
