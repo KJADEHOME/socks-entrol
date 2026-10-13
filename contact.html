@@ -10,8 +10,8 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Contact Us - Entrol Rongxing | Get OEM/ODM Quotation">
-    <meta property="og:description" content="Request product catalogs, sample details and OEM/ODM quotations. Receive a response within one business day.">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="Request a socks catalog, sample details or OEM/ODM factory quotation. Share product, quantity, target market, customization and delivery requirements.">
     <meta property="og:url" content="https://socks.entrol.com/contact.html">
     <meta property="og:site_name" content="Entrol Rongxing">
     <!-- Google Analytics 4 -->
@@ -210,12 +210,41 @@
                         <label for="quantity" data-i18n="contactPage.labelQty">Estimated Quantity</label>
                         <select id="quantity" name="quantity">
                             <option value="" data-i18n="contactPage.optQty">Select quantity range</option>
+                            <option value="under-1000">Under 1,000 pairs (development review)</option>
+                            <option value="1000-2999">1,000 - 2,999 pairs (development review)</option>
                             <option value="3000-10000">3,000 - 10,000 pairs</option>
                             <option value="10000-50000">10,000 - 50,000 pairs</option>
                             <option value="50000-100000">50,000 - 100,000 pairs</option>
                             <option value="100000+">100,000+ pairs</option>
                         </select>
                     </div>
+                    <fieldset class="sock-spec-builder" id="sockSpecBuilder">
+                        <legend>Build Your Sock Specification</legend>
+                        <p class="form-help">These choices create a sourcing brief for engineering review. They are not a performance, compliance or production guarantee.</p>
+                        <div class="form-row">
+                            <div class="form-group"><label for="sockUse">Intended Use</label><select id="sockUse" name="sock_use"><option value="">Select use</option><option value="everyday">Everyday / casual</option><option value="athletic">Athletic / active</option><option value="outdoor">Outdoor / hiking</option><option value="indoor">Indoor / sleep / gifting</option><option value="workwear">Workwear</option></select></div>
+                            <div class="form-group"><label for="sockMaterial">Primary Yarn / Material Direction</label><select id="sockMaterial" name="sock_material"><option value="">Select direction</option><option value="cotton-blend">Cotton blend</option><option value="polyester-blend">Polyester blend</option><option value="wool-blend">Wool blend</option><option value="feather-yarn">Feather / fuzzy yarn</option><option value="buyer-specified">Buyer-specified blend</option></select></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="cottonPercent">Target Cotton Content (%)</label><input id="cottonPercent" name="cotton_percent" type="number" min="0" max="100" step="1" placeholder="If applicable; confirm by sample"></div>
+                            <div class="form-group"><label for="sockThickness">Weight / Thickness Direction</label><select id="sockThickness" name="sock_thickness"><option value="">Select direction</option><option value="light">Lightweight</option><option value="medium">Medium</option><option value="heavy">Heavy / thermal</option><option value="sample-match">Match reference sample</option></select></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="sockGauge">Machine / Needle Direction</label><select id="sockGauge" name="sock_gauge"><option value="">Engineering review</option><option value="96-needle">96 needle / coarse direction</option><option value="120-needle">120 needle / medium direction</option><option value="144-needle">144 needle / finer direction</option><option value="168-needle">168 needle / fine-detail direction</option></select></div>
+                            <div class="form-group"><label for="sockSize">Size Program</label><select id="sockSize" name="sock_size"><option value="">Select size program</option><option value="kids">Kids</option><option value="womens">Women's</option><option value="mens">Men's</option><option value="unisex">Unisex</option><option value="multi-size">Multiple graded sizes</option></select></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="sockStructure">Construction</label><select id="sockStructure" name="sock_structure"><option value="">Select construction</option><option value="plain">Plain knit</option><option value="jacquard">Jacquard</option><option value="terry">Terry / cushioned</option><option value="double-layer">Double layer</option><option value="fuzzy">Fuzzy / feather-yarn pile</option></select></div>
+                            <div class="form-group"><label for="sockFunction">Functional Direction</label><select id="sockFunction" name="sock_function"><option value="standard">Standard comfort</option><option value="grip">Non-slip grip</option><option value="compression">Compression-style fit (engineering review)</option><option value="moisture">Moisture-management direction</option><option value="thermal">Thermal direction</option></select></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="sockPackaging">Packaging</label><select id="sockPackaging" name="sock_packaging"><option value="bulk">Bulk / buyer to confirm</option><option value="polybag">Individual polybag</option><option value="hangtag">Custom hangtag / header card</option><option value="gift-box">Custom gift box</option><option value="multipack">Retail multipack</option></select></div>
+                            <div class="form-group"><label for="complianceNeed">Testing / Compliance Brief</label><input id="complianceNeed" name="compliance_requirements" type="text" maxlength="180" placeholder="Target market or retailer requirement; to be verified"></div>
+                        </div>
+                        <div class="spec-risk-panel" id="specRiskPanel" data-level="none" role="status" aria-live="polite"><strong id="specRiskTitle">Complete the choices for a compatibility review.</strong><ul id="specRiskList"></ul><button class="btn btn-secondary spec-fix-btn" id="applySpecFix" type="button" hidden>Apply suggested correction</button></div>
+                        <label class="spec-risk-ack" id="specRiskAckWrap" hidden><input id="specRiskAck" name="engineering_acknowledgement" type="checkbox" value="acknowledged"> I understand this combination needs engineering confirmation before sampling or quotation.</label>
+                        <input id="specificationSummary" name="specification_summary" type="hidden" value="">
+                    </fieldset>
                     <div class="form-group">
                         <label for="message" data-i18n="contactPage.labelMsg">Detailed Requirements *</label>
                         <textarea id="message" name="message" rows="5" required data-i18n-placeholder="contactPage.phMsg" placeholder="Please describe your specific requirements, including product specifications, customization needs, target market, etc."></textarea>
