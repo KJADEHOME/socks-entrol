@@ -913,16 +913,15 @@ document.addEventListener('DOMContentLoaded', function() {
             };
 
             try {
-                const response = await fetch('https://jipgzavuxvnaisgxcvts.supabase.co/functions/v1/entrol-submit-lead', {
+                const response = await fetch('https://formsubmit.co/5dc5f6116cc8c7d3c7280ac008322da9', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'X-Request-Id': data.request_id
+                        'Content-Type': 'application/x-www-form-urlencoded'
                     },
-                    body: JSON.stringify(payload)
+                    body: new URLSearchParams(payload)
                 });
-                const result = await response.json().catch(() => ({}));
-                if (!response.ok || !result.ok) throw new Error(result.error || 'submission_failed');
+                if (!response.ok) throw new Error('submission_failed');
+                const result = { ok: true };
 
                 try {
                     sessionStorage.setItem('entrol_b2b_submission', JSON.stringify({
@@ -931,7 +930,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 } catch (error) {
                     // Storage restrictions must never block a stored inquiry.
                 }
-                if (typeof gtag === 'function') {
+                if (response.ok && typeof gtag === 'function') {
                     gtag('event', 'lead_submit_success', {
                         form_name: 'b2b_inquiry',
                         form_path: 'contact'
